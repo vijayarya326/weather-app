@@ -1,1 +1,1 @@
-console.log("App Started");
+console.log("App Started on Windows");
