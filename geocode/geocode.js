@@ -15,7 +15,7 @@ var geocodeAddress = (address, callback) =>{
         }else if(body.status =="ZERO_RESULTS"){
             callback("Unable to find the address");
         }
-    })
+    });
 
 }
 
