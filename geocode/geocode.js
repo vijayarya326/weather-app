@@ -1,5 +1,6 @@
 const  request = require('request');
 const keyString  = "AIzaSyANhKnVrENZiltmwVZRNcNy0lpRgxhOe1E";
+const axios = require('axios');
 
 var geocodeAddress = (address, callback) =>{
     let endcodedAddress =  encodeURIComponent(address);
@@ -19,7 +20,15 @@ var geocodeAddress = (address, callback) =>{
 
 }
 
+var geocodeAddressPromise =(address) =>{
+    let endcodedAddress =  encodeURIComponent(address);
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json?address='+endcodedAddress+'&key='+keyString)
+        .then((response )=>{
+            console.log(response.data);
+        })
+}
 
 module.exports = {
-    geocodeAddress
+    geocodeAddress,
+    geocodeAddressPromise,
 };
